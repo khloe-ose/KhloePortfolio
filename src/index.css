@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #faf8f5;
+}
+
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-5 py-16 sm:px-6 lg:px-8 lg:py-20;
+  }
+
+  .editorial-card {
+    @apply rounded-[1.75rem] border border-line bg-white/80 shadow-soft-card backdrop-blur-sm;
+  }
+
+  .section-kicker {
+    @apply mb-4 inline-flex text-xs font-semibold uppercase tracking-[0.22em] text-brand-700;
+  }
+
+  .section-heading {
+    @apply max-w-4xl font-display text-4xl font-semibold leading-[0.98] text-ink sm:text-5xl lg:text-6xl;
+  }
+
+  .section-copy {
+    @apply mt-6 max-w-3xl text-base leading-8 text-muted sm:text-lg;
+  }
+
+  .primary-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink bg-ink px-5 py-2.5 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-paper;
+  }
+
+  .secondary-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-white/80 px-5 py-2.5 text-sm font-semibold text-ink transition duration-300 hover:-translate-y-0.5 hover:border-brand-100 hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-paper;
+  }
+
+  .soft-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-white/75 px-4 py-2 text-sm font-medium text-ink;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal.is-visible {
+    animation: reveal-shift 650ms ease both;
+  }
+}
+
+@keyframes reveal-shift {
+  from {
+    transform: translateY(16px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
