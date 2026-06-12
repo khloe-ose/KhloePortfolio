@@ -66,9 +66,9 @@ function About() {
     <section id="about" className="overflow-hidden bg-white">
       <div className="section-shell">
         <Reveal className="mx-auto max-w-4xl text-center">
-          <p className="section-kicker justify-center">About Me</p>
+          <p className="section-kicker justify-center">Growing through teamwork, curiosity, and hands-on experience.</p>
           <h2 className="section-heading mx-auto">
-            Growing through teamwork, curiosity, and hands-on experience.
+            About Me
           </h2>
         </Reveal>
 

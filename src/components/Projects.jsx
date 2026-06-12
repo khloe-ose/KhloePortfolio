@@ -26,16 +26,19 @@ function Projects() {
               <div className="grid gap-0 lg:grid-cols-[0.76fr_1.24fr]">
                 <div className="flex min-h-full flex-col justify-between border-b border-line bg-paper-soft p-6 sm:p-8 lg:border-b-0 lg:border-r">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-700">
-                      Project {String(index + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="mt-6 text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+                    <h3 className="text-3xl font-semibold leading-tight text-ink sm:text-4xl">
                       {project.title}
                     </h3>
+                    {project.image && (
+                      <div className="mt-6 flex h-40 items-center justify-center overflow-hidden rounded-[1.25rem] border border-line bg-white p-2 shadow-soft-card sm:h-48 lg:h-56">
+                        <img
+                          src={project.image.src}
+                          alt={project.image.alt}
+                          className="max-h-full w-full rounded-[0.85rem] object-contain"
+                        />
+                      </div>
+                    )}
                   </div>
-                  <p className="mt-8 text-sm leading-7 text-muted">
-                    {project.note || "Placeholder links are ready to replace."}
-                  </p>
                 </div>
 
                 <div className="p-6 sm:p-8">
@@ -50,24 +53,6 @@ function Projects() {
                       </span>
                     ))}
                   </div>
-
-                  {project.features && (
-                    <div className="mt-8">
-                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">
-                        Main Features
-                      </p>
-                      <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                        {project.features.map((feature) => (
-                          <li
-                            key={feature}
-                            className="rounded-[1rem] border border-line bg-white/60 px-4 py-3 text-sm leading-6 text-muted"
-                          >
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
 
                   <div className="mt-8 grid gap-3 sm:grid-cols-3">
                     <ProjectLink link={project.links.documentation} icon={BookOpen}>

@@ -61,7 +61,10 @@ export const projects = [
     title: "TaskMo!",
     description:
       "TaskMo! is a full-stack project and task management system for teams. It includes authentication, role-based access, project management, task assignment, Kanban tracking, comments, activity logs, dashboard analytics, and a responsive React UI.",
-    note: "Completed project. Documentation and source code are available.",
+    image: {
+      src: "/images/taskmo-dashboard.png",
+      alt: "TaskMo dashboard showing task status charts, priority analytics, and activity logs",
+    },
     technologies: [
       "React.js",
       "Vite",
@@ -73,19 +76,6 @@ export const projects = [
       "bcrypt",
       "Recharts",
       "Lucide React",
-    ],
-    features: [
-      "User registration and login",
-      "Role-based access control: Admin, Project Manager, Team Member",
-      "Admin user management",
-      "Project creation, editing, deletion, and details",
-      "Task creation, assignment, due dates, priority, and status tracking",
-      "Kanban board with To Do, In Progress, and Completed columns",
-      "Task comments",
-      "Search and filters",
-      "Dashboard cards and charts",
-      "Recent activity log",
-      "Responsive layout",
     ],
     links: {
       documentation: {

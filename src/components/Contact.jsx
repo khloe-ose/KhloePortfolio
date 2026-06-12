@@ -22,15 +22,7 @@ function Contact() {
   const [status, setStatus] = useState({ type: "idle", message: "" });
   const startedAt = useRef(Date.now());
 
-  // EmailJS setup:
-  // 1. Create an EmailJS service connected to the email that receives messages.
-  // 2. Create a template that sends to khloe.ose@gmail.com.
-  // 3. Paste the IDs/keys into .env using:
-  //    VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID,
-  //    VITE_EMAILJS_PUBLIC_KEY.
-  // Template variables used here:
-  // from_name, from_email, reply_to, subject, message, to_email, sent_at,
-  // time_on_page_seconds.
+  
   const emailJsConfig = {
     serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
     templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
@@ -138,13 +130,9 @@ function Contact() {
       <div className="section-shell">
         <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr]">
           <Reveal>
-            <p className="section-kicker">Contact</p>
-            <h2 className="section-heading">Let's talk about internship fit.</h2>
-            <p className="section-copy">
-              Recruiters and teams can use this form to reach me directly for
-              internship opportunities, interviews, technical coordination
-              roles, and project conversations.
-            </p>
+            <p className="section-kicker">Contact Me</p>
+            <h2 className="section-heading">Let's work together.</h2>
+            
 
             <div className="mt-10 space-y-3">
               <ContactLink
@@ -264,11 +252,6 @@ function Contact() {
                 {status.type === "loading" ? "Sending..." : "Send Message"}
                 <Send size={18} />
               </button>
-
-              <p className="mt-4 text-xs leading-6 text-muted">
-                Protected with required fields, email validation, a honeypot
-                field, and EmailJS browser keys stored in environment variables.
-              </p>
             </form>
           </Reveal>
         </div>
