@@ -60,6 +60,9 @@ function Contact() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+
+    if (status.type === "loading") return;
+
     setStatus({ type: "idle", message: "" });
 
     if (form.website) {
@@ -95,20 +98,22 @@ function Contact() {
     setStatus({ type: "loading", message: "Sending your message..." });
 
     try {
+      const templateParams = {
+        from_name: form.name.trim(),
+        from_email: form.email.trim(),
+        reply_to: form.email.trim(),
+        subject: form.subject.trim(),
+        message: form.message.trim(),
+        to_email: profile.email,
+        sent_at: new Date().toLocaleString(),
+        time_on_page_seconds: Math.round((Date.now() - startedAt.current) / 1000),
+      };
+
       await emailjs.send(
-        emailJsConfig.serviceId,
-        emailJsConfig.templateId,
-        {
-          from_name: form.name.trim(),
-          from_email: form.email.trim(),
-          reply_to: form.email.trim(),
-          subject: form.subject.trim(),
-          message: form.message.trim(),
-          to_email: profile.email,
-          sent_at: new Date().toLocaleString(),
-          time_on_page_seconds: Math.round((Date.now() - startedAt.current) / 1000),
-        },
-        { publicKey: emailJsConfig.publicKey }
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       setForm(initialForm);
