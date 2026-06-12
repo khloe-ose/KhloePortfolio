@@ -58,23 +58,49 @@ export const skillGroups = [
 
 export const projects = [
   {
-    title: "TaskFlow – Project & Task Management System",
+    title: "TaskMo!",
     description:
-      "A full-stack project management platform that enables teams to create projects, assign tasks, track progress through a Kanban board, monitor deadlines, and visualize team performance through analytics dashboards. Includes role-based access for administrators, project managers, and team members.",
+      "TaskMo! is a full-stack project and task management system for teams. It includes authentication, role-based access, project management, task assignment, Kanban tracking, comments, activity logs, dashboard analytics, and a responsive React UI.",
+    note: "Completed project. Documentation and source code are available.",
     technologies: [
       "React.js",
+      "Vite",
       "Tailwind CSS",
       "Node.js",
       "Express.js",
       "MySQL",
       "JWT Authentication",
-      "Chart.js",
-      "Git/GitHub",
+      "bcrypt",
+      "Recharts",
+      "Lucide React",
+    ],
+    features: [
+      "User registration and login",
+      "Role-based access control: Admin, Project Manager, Team Member",
+      "Admin user management",
+      "Project creation, editing, deletion, and details",
+      "Task creation, assignment, due dates, priority, and status tracking",
+      "Kanban board with To Do, In Progress, and Completed columns",
+      "Task comments",
+      "Search and filters",
+      "Dashboard cards and charts",
+      "Recent activity log",
+      "Responsive layout",
     ],
     links: {
-      documentation: "#",
-      liveDemo: "#",
-      githubRepo: "#",
+      documentation: {
+        href: "/docs/taskmo.html",
+        label: "Documentation",
+      },
+      liveDemo: {
+        label: "Coming Soon",
+        disabled: true,
+      },
+      githubRepo: {
+        href: "https://github.com/khloe-ose/TaskMo-.git",
+        label: "GitHub Repo",
+        external: true,
+      },
     },
   },
   {

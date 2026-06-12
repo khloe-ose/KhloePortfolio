@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="TaskMo project documentation covering setup, features, tech stack, role permissions, and local run instructions."
+    />
+    <title>TaskMo! Documentation</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #faf8f5;
+        color: #171a1f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+      }
+
+      main {
+        width: min(100% - 32px, 1040px);
+        margin: 0 auto;
+        padding: 56px 0 72px;
+      }
+
+      a {
+        color: #315b82;
+        font-weight: 700;
+      }
+
+      .back-link {
+        display: inline-flex;
+        margin-bottom: 32px;
+        text-decoration: none;
+      }
+
+      .hero,
+      section {
+        border: 1px solid #e7e1da;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 14px 40px rgba(23, 26, 31, 0.05);
+      }
+
+      .hero {
+        padding: clamp(28px, 5vw, 52px);
+      }
+
+      section {
+        margin-top: 20px;
+        padding: clamp(24px, 4vw, 36px);
+      }
+
+      .kicker {
+        margin: 0 0 12px;
+        color: #3f719f;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        line-height: 1;
+      }
+
+      h1 {
+        max-width: 780px;
+        font-size: clamp(2.4rem, 8vw, 5rem);
+      }
+
+      h2 {
+        font-size: clamp(1.7rem, 4vw, 2.6rem);
+      }
+
+      p {
+        color: #6f747d;
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      ul {
+        display: grid;
+        gap: 10px;
+        margin: 20px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      li {
+        border: 1px solid #e7e1da;
+        border-radius: 16px;
+        background: #faf8f5;
+        padding: 12px 14px;
+        color: #4d535c;
+        line-height: 1.55;
+      }
+
+      code,
+      pre {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      }
+
+      pre {
+        overflow-x: auto;
+        border: 1px solid #e7e1da;
+        border-radius: 16px;
+        background: #171a1f;
+        color: #fff;
+        padding: 16px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      @media (min-width: 760px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back-link" href="/#projects">Back to portfolio</a>
+
+      <div class="hero">
+        <p class="kicker">Project Documentation</p>
+        <h1>TaskMo!</h1>
+        <p>
+          TaskMo! is a full-stack project and task management system for teams. It includes JWT
+          authentication, role-based access control, project CRUD, task assignment, Kanban tracking,
+          task comments, activity logs, dashboard analytics, a responsive React UI, and MySQL schema
+          and seed files.
+        </p>
+      </div>
+
+      <section>
+        <p class="kicker">Tech Stack</p>
+        <h2>Tools and Frameworks</h2>
+        <ul class="grid">
+          <li>Frontend: React.js with Vite</li>
+          <li>Styling: Tailwind CSS</li>
+          <li>Backend: Node.js with Express.js</li>
+          <li>Database: MySQL</li>
+          <li>Authentication: JWT</li>
+          <li>Password hashing: bcrypt</li>
+          <li>Charts: Recharts</li>
+          <li>Icons: Lucide React</li>
+        </ul>
+      </section>
+
+      <section>
+        <p class="kicker">Features</p>
+        <h2>Main Capabilities</h2>
+        <ul class="grid">
+          <li>User registration and login</li>
+          <li>JWT authentication and protected routes</li>
+          <li>Role-based access: Admin, Project Manager, Team Member</li>
+          <li>Admin user management</li>
+          <li>Project creation, editing, deletion, and details</li>
+          <li>Task creation, editing, assignment, due dates, priority, and status tracking</li>
+          <li>Kanban board with To Do, In Progress, and Completed columns</li>
+          <li>Task comments</li>
+          <li>Search and filters by status, priority, assignee, due date, and keyword</li>
+          <li>Dashboard cards and charts for tasks, priorities, statuses, overdue work, and project completion</li>
+          <li>Recent activity log</li>
+          <li>Loading, empty, success, error, validation, and delete confirmation states</li>
+          <li>Responsive layout for desktop, tablet, and mobile</li>
+        </ul>
+      </section>
+
+      <section>
+        <p class="kicker">Role Permissions</p>
+        <h2>Access Levels</h2>
+        <ul class="grid">
+          <li><strong>Admin:</strong> manage all users, create/edit/delete projects, view all tasks and analytics.</li>
+          <li><strong>Project Manager:</strong> create projects, assign tasks, update task status, and view project analytics.</li>
+          <li><strong>Team Member:</strong> view assigned tasks, update task status, and add comments.</li>
+        </ul>
+      </section>
+
+      <section>
+        <p class="kicker">Local Setup</p>
+        <h2>Environment Variables</h2>
+        <p>Create <code>server/.env</code>:</p>
+        <pre><code>PORT=5001
+NODE_ENV=development
+CLIENT_URL=http://localhost:5173
+
+DB_HOST=127.0.0.1
+DB_PORT=3307
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=taskflow
+
+JWT_SECRET=replace_this_with_a_long_random_secret
+JWT_EXPIRES_IN=7d</code></pre>
+
+        <p>Create <code>client/.env</code>:</p>
+        <pre><code>VITE_API_URL=http://localhost:5001/api</code></pre>
+      </section>
+
+      <section>
+        <p class="kicker">Run Locally</p>
+        <h2>Install, Database, and Start Commands</h2>
+        <p>Install dependencies from the project root:</p>
+        <pre><code>npm --prefix server install
+npm --prefix client install</code></pre>
+
+        <p>Create the MySQL database and seed data:</p>
+        <pre><code>mysql --protocol=TCP -h 127.0.0.1 -P 3307 -u root &lt; server/database/schema.sql
+mysql --protocol=TCP -h 127.0.0.1 -P 3307 -u root taskflow &lt; server/database/seed.sql</code></pre>
+
+        <p>Start the backend and frontend in separate terminals:</p>
+        <pre><code>npm --prefix server run dev
+npm --prefix client run dev -- --host localhost</code></pre>
+
+        <p>
+          Open <code>http://localhost:5173</code>. The API health check is available at
+          <code>http://localhost:5001/api/health</code>.
+        </p>
+      </section>
+
+      <section>
+        <p class="kicker">Repository</p>
+        <h2>Source Code</h2>
+        <p>
+          GitHub repository:
+          <a href="https://github.com/khloe-ose/TaskMo-.git" target="_blank" rel="noreferrer">
+            https://github.com/khloe-ose/TaskMo-.git
+          </a>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

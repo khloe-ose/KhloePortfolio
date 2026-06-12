@@ -34,7 +34,7 @@ function Projects() {
                     </h3>
                   </div>
                   <p className="mt-8 text-sm leading-7 text-muted">
-                    Placeholder links are ready to replace.
+                    {project.note || "Placeholder links are ready to replace."}
                   </p>
                 </div>
 
@@ -51,14 +51,32 @@ function Projects() {
                     ))}
                   </div>
 
+                  {project.features && (
+                    <div className="mt-8">
+                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">
+                        Main Features
+                      </p>
+                      <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                        {project.features.map((feature) => (
+                          <li
+                            key={feature}
+                            className="rounded-[1rem] border border-line bg-white/60 px-4 py-3 text-sm leading-6 text-muted"
+                          >
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
                   <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                    <ProjectLink href={project.links.documentation} icon={BookOpen}>
+                    <ProjectLink link={project.links.documentation} icon={BookOpen}>
                       Documentation
                     </ProjectLink>
-                    <ProjectLink href={project.links.liveDemo} icon={ExternalLink}>
+                    <ProjectLink link={project.links.liveDemo} icon={ExternalLink}>
                       Live Demo
                     </ProjectLink>
-                    <ProjectLink href={project.links.githubRepo} icon={Github}>
+                    <ProjectLink link={project.links.githubRepo} icon={Github}>
                       GitHub Repo
                     </ProjectLink>
                   </div>
@@ -72,14 +90,36 @@ function Projects() {
   );
 }
 
-function ProjectLink({ href, icon: Icon, children }) {
+function ProjectLink({ link, icon: Icon, children }) {
+  const linkConfig =
+    typeof link === "string"
+      ? { href: link, label: children }
+      : { label: children, ...link };
+
+  const sharedClassName =
+    "inline-flex items-center justify-center gap-2 rounded-full border border-line bg-white/75 px-4 py-3 text-sm font-semibold text-ink transition hover:border-brand-100 hover:bg-brand-50 hover:text-brand-700";
+
+  if (linkConfig.disabled) {
+    return (
+      <span
+        className={`${sharedClassName} cursor-not-allowed opacity-60 hover:border-line hover:bg-white/75 hover:text-ink`}
+        aria-disabled="true"
+      >
+        <Icon size={17} />
+        {linkConfig.label}
+      </span>
+    );
+  }
+
   return (
     <a
-      href={href}
-      className="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-white/75 px-4 py-3 text-sm font-semibold text-ink transition hover:border-brand-100 hover:bg-brand-50 hover:text-brand-700"
+      href={linkConfig.href}
+      target={linkConfig.external ? "_blank" : undefined}
+      rel={linkConfig.external ? "noreferrer" : undefined}
+      className={sharedClassName}
     >
       <Icon size={17} />
-      {children}
+      {linkConfig.label}
     </a>
   );
 }
