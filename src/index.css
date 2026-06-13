@@ -61,6 +61,18 @@ textarea {
     @apply inline-flex items-center gap-2 rounded-full border border-line bg-white/75 px-4 py-2 text-sm font-medium text-ink;
   }
 
+  .project-carousel-track {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior-x: contain;
+  }
+
+  .project-carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
   .reveal {
     opacity: 1;
     transform: none;

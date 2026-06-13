@@ -9,9 +9,6 @@ function Footer() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink">
             {profile.name}
           </p>
-          <p className="mt-2 text-sm text-muted">
-            Built with React.js and Tailwind CSS.
-          </p>
         </div>
 
         <div className="flex flex-wrap gap-3">
