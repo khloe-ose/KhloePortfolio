@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="TaskMo project documentation covering overview, features, user roles, tech stack, and local setup."
+      content="StockIt project documentation covering overview, features, user roles, tech stack, and local setup."
     />
-    <title>TaskMo! Documentation</title>
+    <title>StockIt Documentation</title>
     <style>
       :root {
         color-scheme: light;
@@ -139,12 +139,11 @@
 
       <div class="hero">
         <p class="kicker">Project Documentation</p>
-        <h1>TaskMo!</h1>
+        <h1>StockIt</h1>
         <p>
-          TaskMo! is a full-stack project and task management system for teams. It includes JWT
-          authentication, role-based access control, project CRUD, task assignment, Kanban tracking,
-          task comments, activity logs, dashboard analytics, a responsive React UI, and MySQL schema
-          and seed files.
+          StockIt is a full-stack inventory and asset management system for offices, schools, and
+          organizations. It supports asset tracking, QR-based asset identification, category and
+          location management, borrow requests, returns, reports, audit logs, and role-based access.
         </p>
       </div>
 
@@ -152,9 +151,10 @@
         <p class="kicker">Project Overview</p>
         <h2>Purpose and Scope</h2>
         <p>
-          The system helps teams organize projects, assign work, track task progress, and review
-          activity from a central dashboard. It gives administrators, project managers, and team
-          members role-specific tools for project planning, task execution, and status visibility.
+          The system centralizes organizational inventory records and borrowing workflows. It gives
+          administrators and inventory managers a structured way to track assets, maintain setup data,
+          approve or reject requests, monitor returns, and review activity through dashboards, reports,
+          and audit logs.
         </p>
       </section>
 
@@ -162,19 +162,18 @@
         <p class="kicker">Features</p>
         <h2>Main Capabilities</h2>
         <ul class="grid">
-          <li>User registration and login</li>
-          <li>JWT authentication and protected routes</li>
-          <li>Role-based access: Admin, Project Manager, Team Member</li>
-          <li>Admin user management</li>
-          <li>Project creation, editing, deletion, and details</li>
-          <li>Task creation, editing, assignment, due dates, priority, and status tracking</li>
-          <li>Kanban board with To Do, In Progress, and Completed columns</li>
-          <li>Task comments</li>
-          <li>Search and filters by status, priority, assignee, due date, and keyword</li>
-          <li>Dashboard cards and charts for tasks, priorities, statuses, overdue work, and project completion</li>
-          <li>Recent activity log</li>
-          <li>Loading, empty, success, error, validation, and delete confirmation states</li>
-          <li>Responsive layout for desktop, tablet, and mobile</li>
+          <li>JWT authentication with bcrypt password hashing</li>
+          <li>Public staff registration and secure login</li>
+          <li>Role-based access for Admin, Inventory Manager, and Staff</li>
+          <li>Asset catalog with category, location, quantity, status, condition, and QR code fields</li>
+          <li>Asset add, edit, delete, detail, search, and filtering workflows</li>
+          <li>Generated QR codes for existing and newly created assets</li>
+          <li>Borrow request approval, rejection, return, and overdue handling</li>
+          <li>Category and location management</li>
+          <li>User management for admins</li>
+          <li>Audit logs for authentication, CRUD actions, approvals, and returns</li>
+          <li>Dashboard analytics for assets, availability, overdue returns, categories, conditions, and monthly activity</li>
+          <li>Admin reports with print and CSV export</li>
         </ul>
       </section>
 
@@ -182,9 +181,9 @@
         <p class="kicker">User Roles</p>
         <h2>Access Levels</h2>
         <ul class="grid">
-          <li><strong>Admin:</strong> manages users, creates and maintains projects, views tasks, and reviews dashboard analytics.</li>
-          <li><strong>Project Manager:</strong> creates projects, assigns tasks, updates task details, and monitors project progress.</li>
-          <li><strong>Team Member:</strong> views assigned work, updates task status, and adds task comments.</li>
+          <li><strong>Admin:</strong> manages users, views inventory records, reviews audit logs, generates reports, and maintains setup data.</li>
+          <li><strong>Inventory Manager:</strong> adds, edits, and deletes assets; approves or rejects borrow requests; marks returns; and manages categories and locations.</li>
+          <li><strong>Staff:</strong> views available assets, submits borrow requests, returns borrowed assets, and reviews personal borrow history.</li>
         </ul>
       </section>
 
@@ -193,11 +192,15 @@
         <h2>Tools and Frameworks</h2>
         <ul class="grid">
           <li>Frontend: React.js with Vite</li>
+          <li>Routing: React Router</li>
           <li>Styling: Tailwind CSS</li>
+          <li>API client: Axios</li>
           <li>Backend: Node.js with Express.js</li>
-          <li>Database: MySQL</li>
+          <li>Database: MySQL with mysql2</li>
           <li>Authentication: JWT</li>
-          <li>Password hashing: bcrypt</li>
+          <li>Password hashing: bcryptjs</li>
+          <li>Validation: Express Validator</li>
+          <li>QR codes: qrcode</li>
           <li>Charts: Recharts</li>
           <li>Icons: Lucide React</li>
         </ul>
@@ -207,18 +210,16 @@
         <p class="kicker">Local Setup</p>
         <h2>Run Locally</h2>
         <p>Create environment files for the server and client, seed MySQL, then start both apps.</p>
-        <pre><code>npm --prefix server install
-npm --prefix client install</code></pre>
+        <pre><code>cd server
+npm install
+npm run dev
 
-        <pre><code>mysql --protocol=TCP -h 127.0.0.1 -P 3307 -u root &lt; server/database/schema.sql
-mysql --protocol=TCP -h 127.0.0.1 -P 3307 -u root taskflow &lt; server/database/seed.sql</code></pre>
-
-        <pre><code>npm --prefix server run dev
-npm --prefix client run dev -- --host localhost</code></pre>
-
+cd ../client
+npm install
+npm run dev</code></pre>
         <p>
-          Open <code>http://localhost:5173</code>. The API health check is available at
-          <code>http://localhost:5001/api/health</code>.
+          Default URLs are <code>http://localhost:5173</code> for the frontend and
+          <code>http://localhost:5000/api</code> for the API, unless local ports are adjusted.
         </p>
       </section>
 
@@ -227,8 +228,8 @@ npm --prefix client run dev -- --host localhost</code></pre>
         <h2>Source Code</h2>
         <p>
           GitHub repository:
-          <a href="https://github.com/khloe-ose/TaskMo-.git" target="_blank" rel="noreferrer">
-            https://github.com/khloe-ose/TaskMo-.git
+          <a href="https://github.com/khloe-ose/StockIt.git" target="_blank" rel="noreferrer">
+            https://github.com/khloe-ose/StockIt.git
           </a>
         </p>
       </section>

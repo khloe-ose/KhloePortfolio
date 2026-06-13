@@ -130,8 +130,8 @@ function Contact() {
       <div className="section-shell">
         <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr]">
           <Reveal>
-            <p className="section-kicker">Contact Me</p>
-            <h2 className="section-heading">Let's work together.</h2>
+            <p className="section-kicker">Let's work together</p>
+            <h2 className="section-heading">Contact Me</h2>
             
 
             <div className="mt-10 space-y-3">

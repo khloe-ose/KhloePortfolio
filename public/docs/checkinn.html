@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="TaskMo project documentation covering overview, features, user roles, tech stack, and local setup."
+      content="CheckInn project documentation covering overview, features, user roles, tech stack, and local setup."
     />
-    <title>TaskMo! Documentation</title>
+    <title>CheckInn Documentation</title>
     <style>
       :root {
         color-scheme: light;
@@ -139,12 +139,12 @@
 
       <div class="hero">
         <p class="kicker">Project Documentation</p>
-        <h1>TaskMo!</h1>
+        <h1>CheckInn</h1>
         <p>
-          TaskMo! is a full-stack project and task management system for teams. It includes JWT
-          authentication, role-based access control, project CRUD, task assignment, Kanban tracking,
-          task comments, activity logs, dashboard analytics, a responsive React UI, and MySQL schema
-          and seed files.
+          CheckInn is a full-stack event registration and QR attendance management system for student
+          organizations, workshops, and conferences. It supports organizer authentication, event
+          management, public registration, participant QR codes, attendance check-in, reports, and
+          certificate generation.
         </p>
       </div>
 
@@ -152,9 +152,10 @@
         <p class="kicker">Project Overview</p>
         <h2>Purpose and Scope</h2>
         <p>
-          The system helps teams organize projects, assign work, track task progress, and review
-          activity from a central dashboard. It gives administrators, project managers, and team
-          members role-specific tools for project planning, task execution, and status visibility.
+          The system helps event organizers manage the full event attendance workflow: creating an
+          event, publishing a registration page, collecting participant records, issuing QR-based
+          attendance credentials, checking participants in, and reviewing attendance results through
+          dashboards and exports.
         </p>
       </section>
 
@@ -162,19 +163,18 @@
         <p class="kicker">Features</p>
         <h2>Main Capabilities</h2>
         <ul class="grid">
-          <li>User registration and login</li>
-          <li>JWT authentication and protected routes</li>
-          <li>Role-based access: Admin, Project Manager, Team Member</li>
+          <li>Organizer and admin registration/login with JWT authentication</li>
+          <li>Role-based protected dashboard routes</li>
+          <li>Event create, read, update, and delete workflows</li>
+          <li>Draft, published, completed, and cancelled event statuses</li>
+          <li>Public mobile-friendly participant registration form</li>
+          <li>Stored QR code data for registered participants</li>
+          <li>QR attendance check-in and manual check-in</li>
+          <li>Participant search and attended/not attended filters</li>
+          <li>CSV attendance export</li>
+          <li>PDF certificate generation for attended participants</li>
+          <li>Dashboard cards and charts for registrations, attendees, attendance rate, and popular events</li>
           <li>Admin user management</li>
-          <li>Project creation, editing, deletion, and details</li>
-          <li>Task creation, editing, assignment, due dates, priority, and status tracking</li>
-          <li>Kanban board with To Do, In Progress, and Completed columns</li>
-          <li>Task comments</li>
-          <li>Search and filters by status, priority, assignee, due date, and keyword</li>
-          <li>Dashboard cards and charts for tasks, priorities, statuses, overdue work, and project completion</li>
-          <li>Recent activity log</li>
-          <li>Loading, empty, success, error, validation, and delete confirmation states</li>
-          <li>Responsive layout for desktop, tablet, and mobile</li>
         </ul>
       </section>
 
@@ -182,9 +182,9 @@
         <p class="kicker">User Roles</p>
         <h2>Access Levels</h2>
         <ul class="grid">
-          <li><strong>Admin:</strong> manages users, creates and maintains projects, views tasks, and reviews dashboard analytics.</li>
-          <li><strong>Project Manager:</strong> creates projects, assigns tasks, updates task details, and monitors project progress.</li>
-          <li><strong>Team Member:</strong> views assigned work, updates task status, and adds task comments.</li>
+          <li><strong>Admin:</strong> manages platform users, reviews events and analytics, and oversees organizer accounts.</li>
+          <li><strong>Organizer:</strong> creates events, manages participant registrations, checks attendance, exports reports, and generates certificates.</li>
+          <li><strong>Participant:</strong> registers through the public event form and uses the generated QR credential for attendance.</li>
         </ul>
       </section>
 
@@ -198,6 +198,8 @@
           <li>Database: MySQL</li>
           <li>Authentication: JWT</li>
           <li>Password hashing: bcrypt</li>
+          <li>QR codes: qrcode</li>
+          <li>PDF generation: pdfkit</li>
           <li>Charts: Recharts</li>
           <li>Icons: Lucide React</li>
         </ul>
@@ -206,19 +208,13 @@
       <section>
         <p class="kicker">Local Setup</p>
         <h2>Run Locally</h2>
-        <p>Create environment files for the server and client, seed MySQL, then start both apps.</p>
-        <pre><code>npm --prefix server install
-npm --prefix client install</code></pre>
-
-        <pre><code>mysql --protocol=TCP -h 127.0.0.1 -P 3307 -u root &lt; server/database/schema.sql
-mysql --protocol=TCP -h 127.0.0.1 -P 3307 -u root taskflow &lt; server/database/seed.sql</code></pre>
-
-        <pre><code>npm --prefix server run dev
-npm --prefix client run dev -- --host localhost</code></pre>
-
+        <p>The project includes helper scripts for a local MySQL-backed deployment.</p>
+        <pre><code>npm run install:all
+npm run local:start
+npm run local:status</code></pre>
         <p>
-          Open <code>http://localhost:5173</code>. The API health check is available at
-          <code>http://localhost:5001/api/health</code>.
+          Default URLs are <code>http://localhost:5173</code> for the frontend and
+          <code>http://localhost:5001/api</code> for the API.
         </p>
       </section>
 
@@ -227,8 +223,8 @@ npm --prefix client run dev -- --host localhost</code></pre>
         <h2>Source Code</h2>
         <p>
           GitHub repository:
-          <a href="https://github.com/khloe-ose/TaskMo-.git" target="_blank" rel="noreferrer">
-            https://github.com/khloe-ose/TaskMo-.git
+          <a href="https://github.com/khloe-ose/CheckInn.git" target="_blank" rel="noreferrer">
+            https://github.com/khloe-ose/CheckInn.git
           </a>
         </p>
       </section>
