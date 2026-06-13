@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -18,7 +18,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: #faf8f5;
+  background: #102a43;
 }
 
 button,
@@ -34,7 +34,7 @@ textarea {
   }
 
   .editorial-card {
-    @apply rounded-[1.75rem] border border-line bg-white/80 shadow-soft-card backdrop-blur-sm;
+    @apply rounded-[1.75rem] border border-line bg-paper-blue/75 shadow-soft-card backdrop-blur-sm;
   }
 
   .section-kicker {
@@ -50,15 +50,15 @@ textarea {
   }
 
   .primary-button {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink bg-ink px-5 py-2.5 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-paper;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-brand-500 bg-brand-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-soft-card transition duration-300 hover:-translate-y-0.5 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-paper;
   }
 
   .secondary-button {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-white/80 px-5 py-2.5 text-sm font-semibold text-ink transition duration-300 hover:-translate-y-0.5 hover:border-brand-100 hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-paper;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-paper-blue/80 px-5 py-2.5 text-sm font-semibold text-ink transition duration-300 hover:-translate-y-0.5 hover:border-brand-500 hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-paper;
   }
 
   .soft-chip {
-    @apply inline-flex items-center gap-2 rounded-full border border-line bg-white/75 px-4 py-2 text-sm font-medium text-ink;
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-paper-blue/75 px-4 py-2 text-sm font-medium text-ink;
   }
 
   .project-carousel-track {

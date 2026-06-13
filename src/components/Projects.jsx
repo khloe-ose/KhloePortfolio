@@ -82,7 +82,7 @@ function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="bg-white">
+    <section id="projects" className="bg-paper">
       <div className="section-shell">
         <Reveal className="mx-auto max-w-4xl text-center">
           <p className="section-kicker justify-center">
@@ -114,7 +114,7 @@ function Projects() {
           <div className="relative mt-5">
             <button
               type="button"
-              className="absolute left-2 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-white text-ink shadow-soft-card transition hover:border-brand-100 hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-white sm:-left-4 lg:-left-16"
+              className="absolute left-2 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-paper-blue text-ink shadow-soft-card transition hover:border-brand-500 hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-paper sm:-left-4 lg:-left-16"
               onClick={() => scrollToProject(activeIndex - 1)}
               aria-label="Previous project"
             >
@@ -133,16 +133,16 @@ function Projects() {
               {projects.map((project) => (
                 <article
                   key={project.title}
-                  className="group min-w-full snap-start overflow-hidden rounded-[1.8rem] border border-line bg-paper shadow-soft-card transition duration-300 hover:shadow-editorial"
+                  className="group min-w-full snap-start overflow-hidden rounded-[1.8rem] border border-line bg-paper-blue/80 shadow-soft-card transition duration-300 hover:shadow-editorial"
                 >
                   <div className="grid h-full gap-0 lg:grid-cols-[0.76fr_1.24fr]">
-                    <div className="flex min-h-full flex-col justify-between border-b border-line bg-paper-soft p-6 sm:p-8 lg:border-b-0 lg:border-r">
+                    <div className="flex min-h-full flex-col justify-between border-b border-line bg-paper-soft/80 p-6 sm:p-8 lg:border-b-0 lg:border-r">
                       <div>
                         <h3 className="text-3xl font-semibold leading-tight text-ink sm:text-4xl">
                           {project.title}
                         </h3>
                         {project.image && (
-                          <div className="mt-6 flex h-56 items-center justify-center overflow-hidden rounded-[1.25rem] border border-line bg-white p-2 shadow-soft-card sm:h-72 lg:h-80">
+                          <div className="mt-6 flex h-56 items-center justify-center overflow-hidden rounded-[1.25rem] border border-line bg-paper p-2 shadow-soft-card sm:h-72 lg:h-80">
                             <img
                               src={project.image.src}
                               alt={project.image.alt}
@@ -183,7 +183,7 @@ function Projects() {
 
             <button
               type="button"
-              className="absolute right-2 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-white text-ink shadow-soft-card transition hover:border-brand-100 hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-white sm:-right-4 lg:-right-16"
+              className="absolute right-2 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-paper-blue text-ink shadow-soft-card transition hover:border-brand-500 hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-paper sm:-right-4 lg:-right-16"
               onClick={() => scrollToProject(activeIndex + 1)}
               aria-label="Next project"
             >
@@ -221,12 +221,12 @@ function ProjectLink({ link, icon: Icon, children }) {
       : { label: children, ...link };
 
   const sharedClassName =
-    "inline-flex items-center justify-center gap-2 rounded-full border border-line bg-white/75 px-4 py-3 text-sm font-semibold text-ink transition hover:border-brand-100 hover:bg-brand-50 hover:text-brand-700";
+    "inline-flex items-center justify-center gap-2 rounded-full border border-line bg-paper/75 px-4 py-3 text-sm font-semibold text-ink transition hover:border-brand-500 hover:bg-brand-50 hover:text-brand-700";
 
   if (linkConfig.disabled) {
     return (
       <span
-        className={`${sharedClassName} cursor-not-allowed opacity-60 hover:border-line hover:bg-white/75 hover:text-ink`}
+        className={`${sharedClassName} cursor-not-allowed opacity-60 hover:border-line hover:bg-paper/75 hover:text-ink`}
         aria-disabled="true"
       >
         <Icon size={17} />

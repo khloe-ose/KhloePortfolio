@@ -99,7 +99,7 @@ function Skills() {
 
         <Reveal className="mt-14">
           <div
-            className="grid gap-2 rounded-[1.75rem] border border-line bg-white/75 p-2 shadow-soft-card sm:grid-cols-2 lg:grid-cols-4"
+            className="grid gap-2 rounded-[1.75rem] border border-line bg-paper-blue/70 p-2 shadow-soft-card sm:grid-cols-2 lg:grid-cols-4"
             role="tablist"
             aria-label="Skill categories"
           >
@@ -118,7 +118,7 @@ function Skills() {
                   onClick={() => setActiveCategoryId(group.id)}
                   className={`flex items-center justify-center gap-2 rounded-[1.25rem] px-4 py-3 text-sm font-semibold transition ${
                     isActive
-                      ? "bg-ink text-white shadow-soft-card"
+                      ? "bg-brand-500 text-slate-950 shadow-soft-card"
                       : "text-muted hover:bg-brand-50 hover:text-brand-700"
                   }`}
                 >
@@ -163,8 +163,8 @@ function SkillCard({ skill }) {
   const SkillIcon = icons[skill.icon] || Code2;
 
   return (
-    <div className="flex min-h-16 items-center gap-3 rounded-[1.25rem] border border-line bg-paper/70 px-4 py-3 transition duration-300 hover:-translate-y-0.5 hover:border-brand-100 hover:bg-brand-50">
-      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-brand-100 bg-white text-brand-700">
+    <div className="flex min-h-16 items-center gap-3 rounded-[1.25rem] border border-line bg-paper/70 px-4 py-3 transition duration-300 hover:-translate-y-0.5 hover:border-brand-500 hover:bg-brand-50">
+      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-brand-100 bg-paper-blue text-brand-700">
         <SkillIcon className="h-5 w-5" aria-hidden="true" />
       </span>
       <span className="text-sm font-semibold text-ink">{skill.name}</span>

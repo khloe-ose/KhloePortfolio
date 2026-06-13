@@ -37,14 +37,14 @@ function Navbar() {
 
         <a
           href="#contact"
-          className="hidden rounded-full border border-ink px-5 py-2.5 text-sm font-semibold text-ink transition hover:bg-ink hover:text-white md:inline-flex"
+          className="hidden rounded-full border border-brand-500 px-5 py-2.5 text-sm font-semibold text-ink transition hover:bg-brand-500 hover:text-slate-950 md:inline-flex"
         >
           Contact Me
         </a>
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white/80 text-ink md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-paper-blue/80 text-ink md:hidden"
           onClick={() => setIsOpen((current) => !current)}
           aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isOpen}
@@ -60,7 +60,7 @@ function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-2xl border border-line bg-white/80 px-4 py-3 text-sm font-semibold text-ink"
+                className="rounded-2xl border border-line bg-paper-blue/80 px-4 py-3 text-sm font-semibold text-ink"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

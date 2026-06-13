@@ -63,7 +63,7 @@ const experiences = [
 
 function About() {
   return (
-    <section id="about" className="overflow-hidden bg-white">
+    <section id="about" className="overflow-hidden bg-paper">
       <div className="section-shell">
         <Reveal className="mx-auto max-w-4xl text-center">
           <p className="section-kicker justify-center">Growing through teamwork, curiosity, and hands-on experience.</p>
@@ -116,17 +116,18 @@ function About() {
             return (
               <Reveal
                 key={area.title}
-                as="article"
                 delay={index * 90}
-                className="editorial-card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-editorial"
+                className="h-full"
               >
-                <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-full border border-brand-100 bg-brand-50 text-brand-700">
-                  <Icon size={20} />
-                </div>
-                <h3 className="text-xl font-semibold text-ink">{area.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted">
-                  {area.description}
-                </p>
+                <article className="editorial-card h-full p-6 transition duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-editorial">
+                  <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-full border border-brand-100 bg-brand-50 text-brand-700">
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="text-xl font-semibold text-ink">{area.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-muted">
+                    {area.description}
+                  </p>
+                </article>
               </Reveal>
             );
           })}
@@ -162,7 +163,7 @@ function About() {
 
 function EducationItem({ logo, alt, school, detail }) {
   return (
-    <div className="flex items-center gap-4 rounded-[1.4rem] border border-line bg-white/75 p-4">
+    <div className="flex items-center gap-4 rounded-[1.4rem] border border-line bg-paper-blue/70 p-4 transition duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-brand-500 hover:bg-brand-50 hover:shadow-editorial">
       <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-line bg-white p-3 shadow-soft-card">
         <img src={logo} alt={alt} className="h-full w-full object-contain" />
       </div>
@@ -179,7 +180,7 @@ function ExperienceCard({ experience, index }) {
     <Reveal
       as="article"
       delay={index * 100}
-      className="flex h-full flex-col overflow-hidden rounded-[1.8rem] border border-line bg-paper shadow-soft-card"
+      className="flex h-full flex-col overflow-hidden rounded-[1.8rem] border border-line bg-paper-blue/70 shadow-soft-card"
     >
       <div className="border-b border-line bg-paper-soft p-5">
         <div className="mx-auto w-full max-w-[11rem] rounded-[1.35rem] border border-line bg-white p-3 shadow-soft-card">
@@ -195,7 +196,7 @@ function ExperienceCard({ experience, index }) {
 
       <div className="flex flex-1 flex-col p-6">
         <div className="flex flex-col gap-3">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-line bg-white/75 px-3 py-1.5 text-xs font-medium text-muted">
+          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-line bg-paper/75 px-3 py-1.5 text-xs font-medium text-muted">
             <CalendarDays size={14} />
             {experience.period}
           </span>

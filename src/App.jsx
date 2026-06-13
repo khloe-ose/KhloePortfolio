@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="min-h-screen bg-paper text-ink">
       <Navbar />
-      <main>
+      <main className="pb-40 md:pb-24">
         <Hero />
         <About />
         <Skills />

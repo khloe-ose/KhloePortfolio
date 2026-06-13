@@ -15,7 +15,7 @@ function Hero() {
         <Reveal>
           <p className="section-kicker">Beyond the Paper</p>
           <h1 className="max-w-3xl font-display text-4xl font-semibold leading-[0.94] text-ink sm:text-5xl lg:text-6xl">
-            Khloe Cassandra Oseña
+            Hi, I'm Khloe!
           </h1>
 
           <div className="mt-5 space-y-1.5 text-base font-medium text-ink sm:text-lg">
@@ -57,7 +57,7 @@ function Hero() {
         </Reveal>
 
         <Reveal className="relative mx-auto w-full max-w-[340px] lg:mr-0 lg:max-w-[360px]" delay={120}>
-          <div className="overflow-hidden rounded-[1.8rem] bg-white p-2 shadow-editorial">
+          <div className="overflow-hidden rounded-[1.8rem] border border-line bg-paper-blue p-2 shadow-editorial">
             <img
               src={profile.photo}
               alt="Khloe Cassandra Oseña seated in a warm cafe setting"

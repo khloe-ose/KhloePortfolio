@@ -209,7 +209,7 @@ function Contact() {
                   value={form.message}
                   onChange={updateField}
                   placeholder="Write your message here..."
-                  className={`w-full resize-y rounded-[1.25rem] border bg-white/85 px-4 py-3 text-base text-ink outline-none transition placeholder:text-muted/60 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 ${
+                  className={`w-full resize-y rounded-[1.25rem] border bg-paper/85 px-4 py-3 text-base text-ink outline-none transition placeholder:text-muted/60 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 ${
                     errors.message ? "border-red-400" : "border-line"
                   }`}
                 />
@@ -224,9 +224,9 @@ function Contact() {
                 <p
                   className={`mt-5 rounded-[1.25rem] border px-4 py-3 text-sm font-medium ${
                     status.type === "success"
-                      ? "border-green-200 bg-green-50 text-green-700"
+                      ? "border-emerald-400/40 bg-emerald-400/10 text-emerald-200"
                       : status.type === "error"
-                        ? "border-red-200 bg-red-50 text-red-700"
+                        ? "border-red-400/40 bg-red-400/10 text-red-200"
                         : "border-brand-100 bg-brand-50 text-brand-700"
                   }`}
                   role="status"
@@ -274,7 +274,7 @@ function Field({ label, name, type = "text", value, error, onChange, placeholder
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full rounded-full border bg-white/85 px-4 py-3 text-base text-ink outline-none transition placeholder:text-muted/60 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 ${
+        className={`w-full rounded-full border bg-paper/85 px-4 py-3 text-base text-ink outline-none transition placeholder:text-muted/60 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 ${
           error ? "border-red-400" : "border-line"
         }`}
       />
@@ -295,9 +295,9 @@ function ContactLink({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noreferrer" : undefined}
-      className="flex items-center gap-4 rounded-[1.4rem] border border-line bg-white/80 p-4 transition hover:border-brand-100 hover:bg-brand-50"
+      className="flex items-center gap-4 rounded-[1.4rem] border border-line bg-paper-blue/80 p-4 transition hover:border-brand-500 hover:bg-brand-50"
     >
-      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-brand-100 bg-white text-brand-700">
+      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-brand-100 bg-paper text-brand-700">
         <Icon size={19} />
       </span>
       <span>
